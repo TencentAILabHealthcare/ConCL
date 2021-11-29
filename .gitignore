@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# WSI pre-processing / jizhi_command
+WSI_tools/
+jizhi_command/
+
 # C extensions
 *.so
 
@@ -115,6 +119,7 @@ data
 *.log.json
 work_dirs/
 pretrains
+jizhi_command/
 
 # Pytorch
 *.pth

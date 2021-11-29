@@ -1,0 +1,26 @@
+_BASE_: "../Base-RCNN-FPN.yaml"
+MODEL:
+  MASK_ON: True
+  WEIGHTS: ""
+  ROI_HEADS:
+    NUM_CLASSES: 1
+  BACKBONE:
+    FREEZE_AT: 0
+  RESNETS:
+    DEPTH: 50
+    NORM: "SyncBN"
+  FPN:
+    NORM: "SyncBN"
+INPUT:
+  MIN_SIZE_TRAIN: (768, 1024)
+  MIN_SIZE_TEST: 768
+  MIN_SIZE_TRAIN_SAMPLING: "range"
+DATASETS:
+  TRAIN: ('CRAG_train',)
+  TEST: ('CRAG_test',)
+SOLVER:
+  STEPS: (10000, 13000)
+  MAX_ITER: 15000
+TEST:
+  PRECISE_BN:
+    ENABLED: True

@@ -13,3 +13,4 @@ MODEL:
 DATASETS:
   TRAIN: ("keypoints_coco_2017_train",)
   TEST: ("keypoints_coco_2017_val",)
+CUDNN_BENCHMARK: True

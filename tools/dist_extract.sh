@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -x
 
-PYTHON=${PYTHON:-"python"}
+PYTHON=${PYTHON:-"python3"}
 CFG=$1
 GPUS=$2
 WORK_DIR=$3

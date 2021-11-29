@@ -1,5 +1,5 @@
 #!/bin/bash
-PYTHON=${PYTHON:-"python"}
+PYTHON=${PYTHON:-"python3"}
 
 CFG=$1
 PY_ARGS=${@:2}

@@ -1,0 +1,25 @@
+_BASE_: "../Base-RetinaNet.yaml"
+MODEL:
+  MASK_ON: True
+  WEIGHTS: ""
+  BACKBONE:
+    FREEZE_AT: 0
+  RESNETS:
+    DEPTH: 18
+    NORM: "SyncBN"
+    RES2_OUT_CHANNELS: 64
+  FPN:
+    NORM: "SyncBN"
+INPUT:
+  MIN_SIZE_TRAIN: (400, 522)
+  MIN_SIZE_TEST: 522
+  MIN_SIZE_TRAIN_SAMPLING: "range"
+DATASETS:
+  TRAIN: ('GlaS_train',)
+  TEST: ('GlaS_test',)
+SOLVER:
+  STEPS: (4000,)
+  MAX_ITER: 5000
+TEST:
+  PRECISE_BN:
+    ENABLED: True

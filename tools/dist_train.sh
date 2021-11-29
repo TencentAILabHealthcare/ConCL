@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-PYTHON=${PYTHON:-"python"}
+PYTHON=${PYTHON:-"python3"}
 
 CFG=$1
 GPUS=$2

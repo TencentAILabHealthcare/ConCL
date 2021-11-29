@@ -48,6 +48,12 @@ def parse_args():
     parser.add_argument('--local_rank', type=int, default=0)
     parser.add_argument('--port', type=int, default=29500,
         help='port only works when launcher=="slurm"')
+
+    ######
+    parser.add_argument('-d','--dev', default=False,action='store_true')
+    parser.add_argument('-c','--continue_training', default=False,action='store_true')
+    #####
+    
     args = parser.parse_args()
     if 'LOCAL_RANK' not in os.environ:
         os.environ['LOCAL_RANK'] = str(args.local_rank)
@@ -69,6 +75,17 @@ def main():
         cfg.resume_from = args.resume_from
     cfg.gpus = args.gpus
 
+    ###### 
+    if args.continue_training:
+        if osp.exists(osp.join(cfg.work_dir, 'latest.pth')):
+            cfg.resume_from = osp.join(cfg.work_dir, 'latest.pth')
+        else:
+            cfg.resume_from = None
+
+    if args.dev:
+        cfg['data']['imgs_per_gpu']=16
+    #######
+
     # check memcached package exists
     if importlib.util.find_spec('mc') is None:
         traverse_replace(cfg, 'memcached', False)
@@ -89,9 +106,16 @@ def main():
     mmcv.mkdir_or_exist(osp.abspath(cfg.work_dir))
     # init the logger before other steps
     timestamp = time.strftime('%Y%m%d_%H%M%S', time.localtime())
-    log_file = osp.join(cfg.work_dir, 'train_{}.log'.format(timestamp))
-    logger = get_root_logger(log_file=log_file, log_level=cfg.log_level)
 
+    #####
+    if args.dev:
+        log_file = None
+    else:
+        log_file = osp.join(cfg.work_dir, 'train_{}.log'.format(timestamp))
+    #####
+    
+    logger = get_root_logger(log_file=log_file, log_level=cfg.log_level)
+    
     # init the meta dict to record some important information such as
     # environment info and seed, which will be logged
     meta = dict()

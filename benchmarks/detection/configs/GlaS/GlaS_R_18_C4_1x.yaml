@@ -1,0 +1,23 @@
+_BASE_: "../Base-RCNN-C4-BN.yaml"
+MODEL:
+  MASK_ON: True
+  WEIGHTS: ""
+  ROI_HEADS:
+    NUM_CLASSES: 1
+  RESNETS:
+    DEPTH: 18
+    NORM: "SyncBN"
+    RES2_OUT_CHANNELS: 64
+INPUT:
+  MIN_SIZE_TRAIN: (400, 522)
+  MIN_SIZE_TEST: 522
+  MIN_SIZE_TRAIN_SAMPLING: "range"
+DATASETS:
+  TRAIN: ('GlaS_train',)
+  TEST: ('GlaS_test',)
+SOLVER:
+  STEPS: (4000,)
+  MAX_ITER: 5000
+TEST:
+  PRECISE_BN:
+    ENABLED: True
