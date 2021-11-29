@@ -7,17 +7,17 @@ This project hosts the code for ConCL, a self-supervised algorithm for dense pre
 ![ConCL overview](assets/overview.png)
 
 ## Installation
-----
+
 
 Please refer to [INSTALL.md](docs/INSTALL.md) for installation and dataset preparation.
 
 ## Getting Started
----
+
 
 Please see [GETTING_STARTED.md](docs/GETTING_STARTED.md) for the basic usage of OpenSelfSup.
 
 ## Models
----
+
 pre-train method | backbone | # pre-training epoch | GlaS AP_bb | CRAG AP_bb 
 --- |:---:|:---:|:---:|:---:|
 SimCLR    | ResNet-18 | 200 | 50.7 | 49.2 
@@ -43,7 +43,7 @@ ConCL     | ResNet-18 | 800 | 58.6 | 55.0
 The pre-trained models are available at this [link](https://drive.google.com/drive/folders/1bNUs5g_eK3mg4YnfdabqKkg-BzkVp612?usp=sharing).
 
 ## Usage
----
+
 
 ### Training
     bash tools/dist_train.sh configs/NCT_pretraining/concl/r18_bs256_ep200.py 8
