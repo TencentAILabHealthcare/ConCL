@@ -109,7 +109,7 @@ venv.bak/
 
 openselfsup/version.py
 version.py
-data
+#data
 .vscode
 .idea
 
@@ -129,5 +129,5 @@ source.sh
 tensorboard.sh
 .DS_Store
 replace.sh
-benchmarks/detection/datasets
+#benchmarks/detection/datasets
 benchmarks/detection/output

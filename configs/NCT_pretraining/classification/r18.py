@@ -15,7 +15,7 @@ model = dict(
 data_source_cfg = dict(type='ImageList')
 data_train_list = 'data/NCT/meta/train_labeled.txt'
 data_train_root = 'data/NCT/data'
-data_test_list = 'data/NCT/meta/full_val_labeled.txt'
+data_test_list = 'data/NCT/meta/val_labeled.txt'
 data_test_root = 'data/NCT/data'
 dataset_type = 'ClassificationDataset'
 img_norm_cfg = dict(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])

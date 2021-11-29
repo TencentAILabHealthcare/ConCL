@@ -73,19 +73,11 @@ you can install it before installing MMCV.
 It is recommended to symlink your dataset root (assuming $YOUR_DATA_ROOT) to `$OPENSELFSUP/data`.
 If your folder structure is different, you may need to change the corresponding paths in config files.
 
-#### Prepare PASCAL VOC
+#### Prepare NCT-CRC-HE-100k dataset
 
-Assuming that you usually store datasets in `$YOUR_DATA_ROOT` (e.g., for me, `/home/xhzhan/data/`).
-This script will automatically download PASCAL VOC 2007 into `$YOUR_DATA_ROOT`, prepare the required files, create a folder `data` under `$OPENSELFSUP` and make a symlink `VOCdevkit`.
-
-```shell
-cd $OPENSELFSUP
-bash tools/prepare_data/prepare_voc07_cls.sh $YOUR_DATA_ROOT
-```
-
-#### Prepare ImageNet and Places205
-
-Taking ImageNet for example, you need to 1) download ImageNet; 2) create the following list files or download [here](https://drive.google.com/drive/folders/1wYkJU_1qRHEt1LPVjBiG6ddUFV-t9hVJ?usp=sharing) under $IMAGENET/meta/: `train.txt` and `val.txt` contains an image file name in each line, `train_labeled.txt` and `val_labeled.txt` contains `filename[space]label\n` in each line; `train_labeled_*percent.txt` are the down-sampled lists for semi-supervised evaluation. 3) create a symlink under `$OPENSELFSUP/data/`.
+- Download the NCT-CRC-HE-100K-NONORM dataset (the pre-training dataset) from the [link](https://zenodo.org/record/1214456#.YaRmkvHMJm8).
+- Assuming that you usually store datasets in `$YOUR_DATA_ROOT`, you can create a folder `data` under `$OPENSELFSUP` and make a symlink `NCT`. Then move all images in NCT-CRC-HE-100K-NONORM to `data/NCT/data` folder.
+- We provide the split used for training in `data/NCT/meta`.
 
 At last, the folder looks like:
 
@@ -95,63 +87,15 @@ OpenSelfSup
 ├── benchmarks
 ├── configs
 ├── data
-│   ├── VOCdevkit
-│   │   ├── VOC2007
-│   │   ├── VOC2012
 │   ├── imagenet
 │   │   ├── meta
 │   │   |   ├── train.txt (for self-sup training, "filename\n" in each line)
-│   │   |   ├── train_labeled.txt (for linear evaluation, "filename[space]label\n" in each line)
-│   │   |   ├── train_labeled_1percent.txt (for semi-supervised evaluation)
-│   │   |   ├── train_labeled_10percent.txt (for semi-supervised evaluation)
-│   │   |   ├── val.txt
-│   │   |   ├── val_labeled.txt (for evaluation)
-│   │   ├── train
-│   │   ├── val
-│   ├── places205
-│   │   ├── meta
-│   │   |   ├── train.txt
 │   │   |   ├── train_labeled.txt
 │   │   |   ├── val.txt
 │   │   |   ├── val_labeled.txt
-│   │   ├── train
-│   │   ├── val
+│   │   ├── data
 ```
 
-### A from-scratch setup script
+#### Prepare GlaS dataset and CRAG dataset
 
-Here is a full script for setting up openselfsup with conda and link the dataset path. The script does not download ImageNet and Places datasets, you have to prepare them on your own.
-
-```shell
-conda create -n open-mmlab python=3.7 -y
-conda activate open-mmlab
-
-conda install -c pytorch pytorch torchvision -y
-git clone https://github.com/open-mmlab/OpenSelfSup.git
-cd OpenSelfSup
-pip install -v -e .
-
-bash tools/prepare_data/prepare_voc07_cls.sh $YOUR_DATA_ROOT
-ln -s $IMAGENET_ROOT data/imagenet
-ln -s $PLACES_ROOT data/places205
-```
-
-### Using multiple OpenSelfSup versions
-
-If there are more than one openselfsup on your machine, and you want to use them alternatively, the recommended way is to create multiple conda environments and use different environments for different versions.
-
-Another way is to insert the following code to the main scripts (`train.py`, `test.py` or any other scripts you run)
-```python
-import os.path as osp
-import sys
-sys.path.insert(0, osp.join(osp.dirname(osp.abspath(__file__)), '../'))
-```
-
-Or run the following command in the terminal of corresponding folder to temporally use the current one.
-```shell
-export PYTHONPATH=`pwd`:$PYTHONPATH
-```
-
-## Common Issues
-
-1. The training hangs / deadlocks in some intermediate iteration. See this [issue](https://github.com/open-mmlab/OpenSelfSup/issues/6).
+- You can download our pre-processed datasets from [GlaS-coco-format](https://drive.google.com/file/d/1xilq4FLMEs1CJKDfZWpBC2TKAxxIA17W/view?usp=sharing) and [CRAG-coco-format](https://drive.google.com/file/d/1ksQZ8y4xiTyPMDUijvWtYnM8afHx--u2/view?usp=sharing).
