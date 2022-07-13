@@ -15,17 +15,17 @@ Please consider citing our paper in your publications if the paper or the projec
 This project is developed upon the open-source project [OpenSelfSup](https://github.com/open-mmlab/OpenSelfSup), which has now chanegd to [MMselfsup](https://github.com/open-mmlab/mmselfsup). Therefore we provide the full repository we used. It should be straightforward to adopt this repo to new MMselfsup. If you have any issue, please leave an issue.
 
 ## Installation
-----
+
 
 Please refer to [INSTALL.md](docs/INSTALL.md) for installation and dataset preparation.
 
 ## Getting Started
----
+
 
 Please see [GETTING_STARTED.md](docs/GETTING_STARTED.md) for the basic usage of OpenSelfSup.
 
 ## Models
----
+
 pre-train method | backbone | # pre-training epoch | GlaS AP_bb | CRAG AP_bb 
 --- |:---:|:---:|:---:|:---:|
 SimCLR    | ResNet-18 | 200 | 50.7 | 49.2 
@@ -51,7 +51,7 @@ ConCL     | ResNet-18 | 800 | 58.6 | 55.0
 The pre-trained models are available at this [link](https://drive.google.com/drive/folders/1bNUs5g_eK3mg4YnfdabqKkg-BzkVp612?usp=sharing).
 
 ## Usage
----
+
 
 ### Training
     bash tools/dist_train.sh configs/NCT_pretraining/concl/r18_bs256_ep200.py 8
