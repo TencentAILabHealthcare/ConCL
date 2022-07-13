@@ -87,7 +87,7 @@ OpenSelfSup
 ├── benchmarks
 ├── configs
 ├── data
-│   ├── imagenet
+│   ├── NCT
 │   │   ├── meta
 │   │   |   ├── train.txt (for self-sup training, "filename\n" in each line)
 │   │   |   ├── train_labeled.txt

@@ -1,10 +1,18 @@
 
-# ConCL: Concept Contrastive Learning for Dense Prediction Pre-training in Pathology Image
+# [ECCV22] ConCL: Concept Contrastive Learning for Dense Prediction Pre-training in Pathology Images
 
-This project hosts the code for ConCL, a self-supervised algorithm for dense prediction pre-training in pathology images.
+This project hosts the code for the paper
+> [**ConCL: Concept Contrastive Learning for Dense Prediction Pre-training in Pathology Images**](tbd_link),  
+> Jiawei Yang, Hanbo Chen, Yuan Liang, Junzhou Huang, Lei He and Jianhua Yao    
+> European Conference on Computer Vision (ECCV), 2022 
 
+Please consider citing our paper in your publications if the paper or the project helps your research.
 
 ![ConCL overview](assets/overview.png)
+
+## Note
+---
+This project is developed upon the open-source project [OpenSelfSup](https://github.com/open-mmlab/OpenSelfSup), which has now chanegd to [MMselfsup](https://github.com/open-mmlab/mmselfsup). Therefore we provide the full repository we used. It should be straightforward to adopt this repo to new MMselfsup. If you have any issue, please leave an issue.
 
 ## Installation
 ----
@@ -106,5 +114,22 @@ An example overall script is provided as below:
 
 ## Acknowledgement
 
-- We would like to thank the [OpenSelfSup](https://github.com/open-mmlab/OpenSelfSup) for its open-source project.
+- We would like to thank the [OpenSelfSup](https://github.com/open-mmlab/OpenSelfSup) (now [MMselfsup](https://github.com/open-mmlab/mmselfsup)) for its open-source project.
 - We would like to thank the [SCRL](https://github.com/kakaobrain/scrl) for the implementation of views' transformation parameters reserving.
+
+
+------
+
+## Disclaimer
+
+This tool is for research purpose and not approved for clinical use.
+
+This is not an official Tencent product.
+
+## Copyright
+
+This tool is developed in Tencent AI Lab.
+
+The copyright holder for this project is Tencent AI Lab.
+
+All rights reserved.
