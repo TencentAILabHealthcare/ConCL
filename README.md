@@ -2,7 +2,7 @@
 # [ECCV22] ConCL: Concept Contrastive Learning for Dense Prediction Pre-training in Pathology Images
 
 This project hosts the code for the paper
-> [**ConCL: Concept Contrastive Learning for Dense Prediction Pre-training in Pathology Images**](tbd_link),  
+> [**ConCL: Concept Contrastive Learning for Dense Prediction Pre-training in Pathology Images**](https://arxiv.org/abs/2207.06733),  
 > Jiawei Yang, Hanbo Chen, Yuan Liang, Junzhou Huang, Lei He and Jianhua Yao    
 > European Conference on Computer Vision (ECCV), 2022 
 
